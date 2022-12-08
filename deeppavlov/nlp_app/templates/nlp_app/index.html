@@ -5,21 +5,28 @@
     <title>DeepPavlov Applications</title>
 </head>
 <body>
+<h3>Сравнение значений текстов</h3>
 <div>
     <form action="" method="POST" enctype="multipart/form-data">
-    <input type="text" name="json_data"><br>
-    <input type="text" name="json_data2">
-    <button type="submit" name="btn1">Send</button>
+    <input type="text" name="json_data"><br><br>
+    <input type="text" name="json_data2"><br><br>
+    <button type="submit" name="btn1">Сравнить</button>
     {% csrf_token %}
     </form>
+    <br>
     {{ data1 }}
 </div>
 <div>
+    <br><br>
+    <h3>Классификация тональности текста </h3>
+</div>
+<div>
     <form action="" method="POST" enctype="multipart/form-data">
-    <input type="text" name="json_data3"><br>
-    <button type="submit" name="btn2">Send</button>
+    <input type="text" name="json_data3"><br><br>
+    <button type="submit" name="btn2">Узнать тональность</button>
     {% csrf_token %}
     </form>
+    <br>
     {{ data2 }}
 </div>
 </body>
