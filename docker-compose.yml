@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  web:
+    build: ./deeppavlov
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./deeppavlov:/django_app
+    ports:
+      - "8001:8000"
+    env_file:
+      - ./.env

@@ -3,7 +3,8 @@ from requests import post
 
 
 def index(request):
-    data = {"data1": "Здесь будет указано одинаковые/разные значения у текстов", "data2": "Здесь будет указана тональность текстов"}
+    data = {"data1": "Здесь будет указано одинаковые/разные значения у текстов",
+            "data2": "Здесь будет указана тональность текстов"}
 
     if request.method == 'POST' and 'btn1' in request.POST:
         link = "http://127.0.0.1:5001/model"
@@ -25,13 +26,14 @@ def index(request):
         return render(request, 'nlp_app/index.html', data)
 
     if request.method == 'POST' and 'btn2' in request.POST:
-        link = "http://127.0.0.1:5000/model"
+        link = "http://172.17.0.2:5000"
+        ENDPOINT = "model/"
         body = {
             "x": [
                 request.POST.get('json_data3', '')
             ]
         }
-        responce = post(link, json=body)
+        responce = post(link+"/"+ENDPOINT, json=body)
         print(responce.text[1])
         if responce.text == '["negative"]':
             data = {"data2": "Негативная тональность текста"}
@@ -39,8 +41,6 @@ def index(request):
             data = {"data2": "Положительная тональность текста"}
         else:
             data = {"data2": "Нейтральная тональность текста"}
-
-        # data = {"data2": responce.text}
 
         return render(request, 'nlp_app/index.html', data)
 
