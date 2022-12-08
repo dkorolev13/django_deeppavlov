@@ -8,13 +8,13 @@
 <h3>Сравнение значений текстов</h3>
 <div>
     <form action="" method="POST" enctype="multipart/form-data">
-    <input type="text" name="json_data"><br><br>
-    <input type="text" name="json_data2"><br><br>
-    <button type="submit" name="btn1">Сравнить</button>
+    <input type="text" name="json_data_for_text_a"><br><br>
+    <input type="text" name="json_data_for_text_b"><br><br>
+    <button type="submit" name="paraphrase_btn">Сравнить</button>
     {% csrf_token %}
     </form>
     <br>
-    {{ data1 }}
+    {{ paraphrase_data }}
 </div>
 <div>
     <br><br>
@@ -22,12 +22,12 @@
 </div>
 <div>
     <form action="" method="POST" enctype="multipart/form-data">
-    <input type="text" name="json_data3"><br><br>
-    <button type="submit" name="btn2">Узнать тональность</button>
+    <input type="text" name="json_data_for_sentiment"><br><br>
+    <button type="submit" name="sentiment_btn">Узнать тональность</button>
     {% csrf_token %}
     </form>
     <br>
-    {{ data2 }}
+    {{ sentiment }}
 </div>
 </body>
 </html>
