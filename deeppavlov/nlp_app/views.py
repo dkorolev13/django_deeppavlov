@@ -6,7 +6,7 @@ def index(request):
     data = {"paraphrase_data": "Здесь будет указано одинаковые/разные значения у текстов",
             "sentiment": "Здесь будет указана тональность текстов"}
 
-    URL_paraphrase_API = "http://192.168.1.71:5001"
+    URL_PARAPHRASE_API = "http://10.0.0.147:5001" # заменить на свой IP adress
     ENDPOINT = '/model'
 
     if request.method == 'POST' and 'paraphrase_btn' in request.POST:
@@ -18,7 +18,7 @@ def index(request):
                 request.POST.get('json_data_for_text_b', '')
             ]
         }
-        responce = requests.post(URL_paraphrase_API + ENDPOINT, json=body)
+        responce = requests.post(URL_PARAPHRASE_API + ENDPOINT, json=body)
 
         if responce.text[1] == '1':
             data = {"paraphrase_data": "Данные два текста имеют одинаковое значение"}
@@ -27,14 +27,14 @@ def index(request):
 
         return render(request, 'nlp_app/index.html', data)
 
-    URL_sentiment_API = "http://192.168.1.71:5000"
+    URL_SENTIMENT_API = "http://10.0.0.147:5000" # заменить на свой IP adress
     if request.method == 'POST' and 'sentiment_btn' in request.POST:
         body = {
             "x": [
                 request.POST.get('json_data_for_sentiment', '')
             ]
         }
-        responce = requests.post(URL_sentiment_API + ENDPOINT, json=body)
+        responce = requests.post(URL_SENTIMENT_API + ENDPOINT, json=body)
 
         if responce.text == '["negative"]':
             data = {"sentiment": "Негативная тональность текста"}
