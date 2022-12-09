@@ -8,7 +8,7 @@ Django application for paraphrase detection and sentiment analysis
 * Клонировать репозиторий на локальную машину <code>git clone git@github.com:dkorolev13/django_deeppavlov.git</code>
 * Создать файл .env в корневом каталоге репозитория
 * Установить Docker и docker compose
-* Собрать и запустить контейнеры <code>docker compose up --build</code>
+* Собрать и запустить контейнер с Django Application <code>docker compose up --build</code>
 * На старых версиях docker compose команда выглядит так <code>docker-compose up --build</code>
 
 ## Для .env
